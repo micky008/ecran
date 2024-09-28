@@ -46,8 +46,14 @@ fichier entier:
 #define SPI_FREQUENCY  27000000 // Actually sets it to 26.67MHz = 80/3
 
 ```
+# BUGs: 
 
-il y a un bug, il faut repreciser encore dans l'init le 320x240 => TFT_eSPI tft = TFT_eSPI(320, 240);
+## 1er bug
+il y a un bug, il faut repreciser encore dans l'init le 320x240 => `TFT_eSPI tft = TFT_eSPI(320, 240);`
+
+## 2eme bug
+dans le fichier .pio\libdeps\esp32dev\TFT_eSPI\Processors\TFT_eSPI_ESP32.h il faut commenter la ligne `#include "hal/gpio_ll.h"`
+car le firmware de l'esp32 a delete ce fichier il a été intégré ailleurs.
 
 # brochage des PINs:
 ```
